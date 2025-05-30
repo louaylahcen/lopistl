@@ -1,0 +1,217 @@
+/* الخط */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+/* الشعار والقائمة */
+nav {
+  background: rgba(0, 0, 0, 0.491);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #00d4ff;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00d4ff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #00d4ff;
+}
+
+/* زر الوضع الليلي */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+#toTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00d4ff;
+  border: none;
+  color: #000;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+/* المحتوى الرئيسي */
+.container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  flex: 1;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.text h2 {
+  font-size: 2.2rem;
+  color: #00d4ff;
+  margin-bottom: 15px;
+}
+
+.text p, .text ul {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.image {
+  flex: 1;
+  text-align: center;
+}
+
+.image img {
+  max-width: 300px;
+  filter: drop-shadow(0 0 10px #00d4ff);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* اختصارات */
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.member {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+.member h3 a {
+  color: #00d4ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.member p {
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* الرؤية */
+.vision {
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.vision h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00d4ff;
+}
+
+.vision p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* سؤال وجواب */
+.faq-item {
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.faq-question {
+  font-size: 1.4rem;
+  color: #00d4ff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.faq-answer {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* تحريكات */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

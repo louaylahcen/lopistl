@@ -1,0 +1,402 @@
+  * {
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+      box-sizing: border-box;
+    }
+
+      body {
+      background: linear-gradient(#373636, #2f2b2b);
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgb(59, 59, 63);
+      z-index: -1;
+      clip-path: circle(40% at left 70%);
+    }
+  h1 {
+      text-align: center;
+      color: crimson;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      background: rgba(105, 105, 114, 0.4);
+      border-radius: 30px;
+      padding: 40px;
+      display: flex;
+    /* justify-content: space-between;*/
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    nav .logo {
+      color: antiquewhite;
+      text-decoration: none;
+      font-size: 35px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 6px;
+    }
+
+    nav ul li a {
+      color: antiquewhite;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: crimson;
+    }
+.content{/*rahi tcenter l7ala*/
+    display:flex;
+    justify-content: space-between;
+    height:100%;
+    width:80%;
+    margin: auto;
+    align-items:center;
+
+}
+    .content .text {
+      color: aliceblue;
+      width: 50%;
+    }
+
+    .content .text h2 {
+      font-size: 35px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .content .text p {
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: 1px;
+    }
+
+    .content .image {
+      width: 40%;
+
+    }
+
+    .content .image img {
+      width: 100%;
+      max-width: 400px;
+      filter: drop-shadow(0 0 8px #ffdd57);
+    }
+
+    .logon {
+      display: block;
+      text-align: center;
+      margin: 40px auto;
+      font-size: 28px;
+      color: antiquewhite;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    /*ta3 members*/
+     .team {
+      margin-top: 30px;
+    }
+
+    .team h2 {
+      font-size: 22px;
+      color: #f4f4f4;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgb(112, 64, 64);
+      display: inline-block;
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .member {
+      background: #383737;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 250px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(200, 50, 50, 0.4);
+    }
+    .member h3 {
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .member p {
+      color: #bbb;
+      font-size: 14px;
+    }
+    /*ta3 3lah t5yrona wli moraha*/
+     .vision, .why-choose {
+      margin-top: 40px;
+    }
+
+    .vision h2,
+    .why-choose h2 {
+      color: rgb(255, 255, 255);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+    /*ta3 about us*/
+        p {
+      font-size: 17px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .highlight {
+      color: rgb(96, 155, 96);
+      font-weight: bold;
+    }
+/*ta3 faq*/
+    .faq-container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .faq-item {
+      background: rgba(60, 60, 60, 0.85);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(200, 50, 50, 0.6);
+    }
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+      font-size: 18px;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    .faq-question.active::after {
+      content: "-";
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.3s ease;
+      background: #444;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .faq-answer.open {
+      padding: 15px 20px;
+      max-height: 300px;/* نحط حد أقصى لفتح الجواب */
+    }
+    /*hadi ta3 botona*/
+       body.light-mode {
+      background: #c9c6c6;
+      color: #111;
+    }
+
+    body.dark-mode {
+      background: #2f2b2b;
+      color: #f1f1f1;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      border: none;
+      background: crimson;
+      color: white;
+      font-size: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 999;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: darkred;
+    }
+
+    #toTop {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      display: none;
+      font-size: 20px;
+      background: crimson;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+    }
+
+/* Light mode style كامل متكامل */
+.light-mode {
+  background: #959595; /* خلفية بيضاء نقية */
+  color: #222222; /* نص داكن للقراءة مريحة */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.light-mode nav {
+ /* background-color: #405151; /* لون فاتح شوية للنافبار */
+  box-shadow: 0 2px 5px rgba(139, 136, 136, 0.1);
+}
+
+.light-mode nav .logo,
+.light-mode nav ul li a {
+  color: #100f0f; 
+  transition: color 0.3s ease;
+}
+
+.light-mode nav ul li a:hover {
+  color: #f71010; /* لون أحمر ناعم للهوفر */
+}
+
+.light-mode .container {
+  background: rgba(152, 152, 152, 0.9); /* خلفية فاتحة مع شفافية */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.light-mode .content .text h2 {
+  color: #111111;
+}
+
+.light-mode .content .text p,
+.light-mode .faq-answer p,
+.light-mode .team-members .member p {
+  color: #000000; /* نص رمادي دافئ */
+}
+
+.light-mode .logon {
+  color: #1a1919;
+  transition: color 0.3s ease;
+}
+
+.light-mode .logon:hover {
+  color: #b22222;
+}
+
+.light-mode .faq-question {
+  background-color: #403e3e;
+  color: #cac7c7;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .faq-question.active {
+  background-color: #1e1d1d;
+}
+
+.light-mode .faq-answer {
+  background-color: #605858;
+  color: #333333;
+  border-radius: 0 0 8px 8px;
+}
+
+.toggle-btn {
+  background: #b22222; /* لون الزر في كل الوضعيات */
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: #800000;
+}
+
+
+
+    @media (max-width: 600px) {
+      .team-members {
+        flex-direction: column;
+      }
+    }
+
+    @keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.content .text, .content .image {
+  animation: fadeIn 1s ease-in;
+}
+
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content .text, .content .image {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav ul {
+        margin-top: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  .cta {
+    width: 100%;
+  }
+
+  .content .text p {
+    font-size: 16px;
+  }
+}

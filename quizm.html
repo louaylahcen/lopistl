@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Test - GHAZA SC</title>
+  <link rel="icon" href="photo/dbdd0a31-24ae-433b-9622-e221f656ee2a-removebg-preview.png" />
+  <style>
+    body {
+      background: linear-gradient(#373636, #2f2b2b);
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .quiz-box {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(60, 60, 60, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px crimson;
+    }
+
+    h1 {
+      text-align: center;
+      color: crimson;
+    }
+
+    #question {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .option {
+      display: block;
+      margin: 10px 0;
+      background: #444;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .option:hover {
+      background: crimson;
+    }
+
+    .btn {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #timer {
+      text-align: right;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    #result {
+      font-size: 22px;
+      margin-top: 20px;
+      color: lightgreen;
+      text-align: center;
+    }
+         nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    nav .logo {
+      color: antiquewhite;
+      text-decoration: none;
+      font-size: 35px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 6px;
+    }
+
+    nav ul li a {
+      color: antiquewhite;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+<nav>
+    <a class="logo" href="home.html">GHAZA SC</a>
+    <ul>
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="corses.html">CORSE</a></li>
+      <li><a href="techers.html">TECHERS</a></li>
+      <li><a href="login.html">LOGIN</a></li>
+    </ul>
+  </nav>  
+  <div class="quiz-box">
+    <h1>Quick Quiz</h1>
+    <div id="timer">⏱ Time: <span id="time">40</span> s</div>
+    <div id="question">Loading...</div>
+    <div id="options"></div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "Si l'on divise une minute en 4, combien y a-t-il de secondes dans chaque part ?",
+        options: ["12.5", "8", "15", "7"],
+        answer: "15"
+      },
+      {
+        q: "Ludivine pèse aujourd’hui 64 kg, elle perd 1,5 kg chaque semaine depuis 3 semaines. Quel était son poids initial ?",
+        options: ["59.5kg", "61.5kg", "67kg", "68.5kg"],
+        answer: "68.5kg"
+      },
+      {
+        q: "",
+        options: ["HighText ML", "HyperText Markup Language", "HyperText Markdown", "None"],
+        answer: "HyperText Markup Language"
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let selectedOption = null;
+    let time = 30;
+    let timer;
+
+    const qElem = document.getElementById("question");
+    const optElem = document.getElementById("options");
+    const resElem = document.getElementById("result");
+    const timeElem = document.getElementById("time");
+
+    function loadQuestion() {
+      if (current >= questions.length) return showResult();
+
+      const q = questions[current];
+      qElem.textContent = q.q;
+      optElem.innerHTML = "";
+      q.options.forEach(opt => {
+        const btn = document.createElement("div");
+        btn.className = "option";
+        btn.textContent = opt;
+        btn.onclick = () => {
+          selectedOption = opt;
+          Array.from(document.querySelectorAll(".option")).forEach(o => o.style.background = "#444");
+          btn.style.background = "crimson";
+        };
+        optElem.appendChild(btn);
+      });
+    }
+
+    function nextQuestion() {
+      if (!selectedOption) {
+        alert("Please select an answer!");
+        return;
+      }
+
+      if (selectedOption === questions[current].answer) {
+        score++;
+      }
+
+      selectedOption = null;
+      current++;
+      if (current < questions.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      clearInterval(timer);
+      qElem.style.display = "none";
+      optElem.style.display = "none";
+      document.querySelector(".btn").style.display = "none";
+      resElem.innerHTML = `✅ You scored ${score} out of ${questions.length}<br><br>
+        <button class="btn" onclick="location.reload()">Retry</button>`;
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        time--;
+        timeElem.textContent = time;
+        if (time <= 0) {
+          clearInterval(timer);
+          showResult();
+        }
+      }, 1000);
+    }
+
+    // Init
+    loadQuestion();
+    startTimer();
+  </script>
+
+</body>
+</html>
